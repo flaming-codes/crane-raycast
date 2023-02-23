@@ -2,7 +2,7 @@ import { ActionPanel, Action, List } from "@raycast/api";
 import { useFetch } from "@raycast/utils";
 import { useState } from "react";
 import { URLSearchParams } from "node:url";
-import { composeSearchParams, parseFetchResponse } from "./models/net";
+import { composeSearchParams, parseFetchSearchResponse } from "./models/net";
 
 const BASE_PACKAGE = "https://www.cran-e.com/author";
 const BASE_API = "https://www.cran-e.com/api/author/overview";
@@ -17,10 +17,10 @@ export default function Command() {
   const [searchText, setSearchText] = useState("");
   const { data, isLoading } = useFetch(`${BASE_API}?` + new URLSearchParams(composeSearchParams(searchText)), {
     parseResponse: (res) =>
-      parseFetchResponse<Hit>(res).then((hits) =>
+      parseFetchSearchResponse<Hit>(res).then((hits) =>
         hits.map((hit) => ({
           ...hit,
-          name: hit.name.replaceAll(`"`, " "),
+          name: hit.name.replaceAll(`"`, " "),
         }))
       ),
   });
