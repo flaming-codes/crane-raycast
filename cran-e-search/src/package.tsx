@@ -53,7 +53,7 @@ function SearchListItem({ hit }: { hit: Hit }) {
       ]}
       actions={
         <ActionPanel>
-          <ActionPanel.Section>
+          <ActionPanel.Section title="Action">
             <Action.OpenInBrowser title="Open in Browser" url={`${BASE_PACKAGE}/${hit.slug}`} />
           </ActionPanel.Section>
           <ActionPanel.Section>

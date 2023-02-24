@@ -51,7 +51,7 @@ export default function Command() {
       isLoading={isLoading}
       searchBarAccessory={<DropdownList selected={range} onValueChange={setRange} />}
     >
-      <List.Section title="Trending R Maintainers by followers on GitHub">
+      <List.Section title="Trending R Maintainers by Followers on GitHub">
         {data?.map((hit) => (
           <SearchListItem key={hit.original.id} hit={hit} />
         ))}
@@ -86,7 +86,7 @@ function SearchListItem({ hit }: { hit: Hit }) {
       ]}
       actions={
         <ActionPanel>
-          <ActionPanel.Section>
+          <ActionPanel.Section title="Action">
             <Action.OpenInBrowser title="Open in Browser" url={original.html_url} />
           </ActionPanel.Section>
         </ActionPanel>
